@@ -2,7 +2,59 @@
 <html>
   <head>
     <title>Basic Calculator</title>
-    <link rel="stylesheet" type="text/css" href="calculator.css">
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      
+      .calculator {
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        width: 300px;
+        text-align: center;
+      }
+      
+      .screen {
+        background-color: #e0e0e0;
+        padding: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      
+      #display {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 24px;
+      }
+      
+      .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+        padding: 10px;
+      }
+      
+      .btn {
+        background-color: #d4d4d4;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      
+      .btn:hover {
+        background-color: #bcbcbc;
+      }
+      
+    </style>
   </head>
   <body>
     <div class="calculator">
@@ -29,6 +81,29 @@
         <button class="btn" onclick="appendToDisplay('+')">+</button>
       </div>
     </div>
-    <script src="calculator.js"></script>
+    <script>
+      let displayValue = "";
+
+function appendToDisplay(value) {
+  displayValue += value;
+  document.getElementById("display").value = displayValue;
+}
+
+function clearDisplay() {
+  displayValue = "";
+  document.getElementById("display").value = displayValue;
+}
+
+function calculateResult() {
+  try {
+    displayValue = eval(displayValue);
+    document.getElementById("display").value = displayValue;
+  } catch (error) {
+    displayValue = "Error";
+    document.getElementById("display").value = displayValue;
+  }
+}
+
+    </script>
   </body>
 </html>
