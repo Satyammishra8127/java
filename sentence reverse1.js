@@ -6,7 +6,7 @@ function reverseWordsInSentence(sentence) {
     const reversedSentence = reversedWords.join(" "); 
     return reversedSentence;
   }
-  const inputSentence = "Hello World";
+  const inputSentence = "Satyam Programmer";
   const reversedSentence = reverseWordsInSentence(inputSentence);
   console.log(reversedSentence);
   
